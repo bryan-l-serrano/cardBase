@@ -3,6 +3,7 @@ from basicDeck import *
 import pygame
 
 def main():
+
     pygame.init()
     x = 0
     y = 0
@@ -11,14 +12,14 @@ def main():
     screen = pygame.display.set_mode([width, height])
 
     running = True
-
+    lastCard = 0
     player1 = basic()
     player2 = basic()
     gameDeck = basic()
     gameDeck.fullDeck()
     gameDeck.shuffle()
     cardBack = pygame.transform.rotozoom(pygame.image.load('./PNG/red_back.png').convert(), 0, 0.2)
-    screen.fill((0,200,0))
+    screen.fill((0,170,0))
     screen.blit(cardBack, (width * .3, height * .6))
     pygame.display.flip()
     while running:
@@ -27,15 +28,19 @@ def main():
                 running = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 x,y = event.pos
-                if cardBack.get_rect().collidepoint(x,y):
-                    cardDrawn = gameDeck.drawCard()
-                    player1.addCard(cardDrawn)
-                    cardDis = pygame.transform.rotozoom(pygame.image.load(cardDrawn.image).convert(), 0, 0.2)
-                    #cardD = pygame.transform.rotozoom(cardDis, 0, 0.1)
-                    screen.blit(cardDis, (width * .6, height * .6))
-                    print(cardDrawn.id)
-        if not gameDeck.deck:
-            del cardBack
+                if gameDeck.deck:
+                     screen.blit(cardBack, (width * .3, height * .6))
+                     if cardBack.get_rect(topleft=(width*.3, height* .6)).collidepoint(x,y):
+                        cardDrawn = gameDeck.drawCard()
+                        player1.addCard(cardDrawn)
+                        cardDis = pygame.transform.rotozoom(pygame.image.load(cardDrawn.image).convert(), 0, 0.2)
+                        lastCard = cardDis
+                        screen.blit(cardDis, (width * .6, height * .6))
+                        print(cardDrawn.id)
+                if not gameDeck.deck:
+                    screen.fill((0,170,0))
+                    screen.blit(lastCard, (width * .6, height * .6))
+
         pygame.display.flip()
 
     pygame.quit()
