@@ -51,6 +51,6 @@ def main():
         display(displayObjects, locations)
         pygame.display.update()
     pygame.quit()
-if __name__ == "__main__":
-    main()
+
+main()
 
