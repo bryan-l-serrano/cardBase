@@ -1,0 +1,3 @@
+Notes/Bugs:
+5-18-20
+drawing a card from an empty deck causes a .pop error
