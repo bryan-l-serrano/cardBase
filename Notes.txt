@@ -1,3 +1,7 @@
-Notes/Bugs:
-5-18-20
-drawing a card from an empty deck causes a .pop error
+Notes/Bugs/Questions:
+
+Week of 5/18/20
+drawing a card from an empty deck causes a .pop error -SS
+Possible Python version difference. Sam on 3.8. Bryan on 3.6 -SS
+How would we add a card to the top of a deck instead of the bottom. Like how pandemic has you put the cards on the infection deck --SS
+Can we convert the value of a card to integers instead of strings? --
