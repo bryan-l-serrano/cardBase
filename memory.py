@@ -75,6 +75,8 @@ def main():
                         #if equal remove both cards from display
                         locations.pop(cardsSelected[0])
                         locations.pop(cardsSelected[1])
+                        gameDeck.deck.pop(cardsSelected[0])
+                        gameDeck.deck.pop(cardsSelected[1])
                         displayObjects.pop(cardsSelected[0])
                         displayObjects.pop(cardsSelected[1])
                         cardsSelected = []
