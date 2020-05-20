@@ -64,7 +64,6 @@ def main():
                     #checks to see if clicked on a card
                     if displayObjects[i].get_rect(topleft=(locations[i][0], locations[i][1])).collidepoint(x, y) and not i in cardsSelected:
                         cardsSelected.append(i)
-                        print("collision with item: " + str(i))
                         todis = pygame.transform.rotozoom(pygame.image.load(gameDeck.deck[i].image).convert(), 0, 0.08)
                         displayObjects[i] = todis
                         refresh(displayObjects, locations)
