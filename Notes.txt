@@ -2,6 +2,8 @@ Notes/Bugs/Questions:
 
 Week of 5/18/20
 drawing a card from an empty deck causes a .pop error -SS
+ ----- check length of deck before drawing from it - BS
 Possible Python version difference. Sam on 3.8. Bryan on 3.6 -SS
 How would we add a card to the top of a deck instead of the bottom. Like how pandemic has you put the cards on the infection deck --SS
-Can we convert the value of a card to integers instead of strings? --
+---- deck[0] is the 'top' of the deck, to add to the top use something like deck.insert(0, card) - BS
+***** Can we convert the value of a card to integers instead of strings? -- DONE
